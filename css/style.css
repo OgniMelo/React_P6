@@ -1,0 +1,76 @@
+@import url('./photographer.css');
+
+body {
+	font-family: 'DM Sans', sans-serif;
+	margin: 0;
+}
+
+header {
+	height: 90px;
+	padding: 0 100px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+h1 {
+	color: #901c1c;
+}
+
+.logo {
+	height: 50px;
+}
+
+.photographers_error {
+	text-align: center;
+	color: red;
+}
+
+.photographer_section {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 70px;
+	margin-top: 100px;
+}
+
+.photographer_section article {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.photographer_section article > a {
+	cursor: pointer;
+	text-align: center;
+	text-decoration: unset;
+	color: unset;
+}
+
+.photographer_section article h2 {
+	margin: 0.5rem 0;
+	color: #d3573c;
+	font-size: 36px;
+}
+
+.photographer_section article img {
+	height: 200px;
+	width: 200px;
+	object-fit: cover;
+	border-radius: 100%;
+}
+
+.photographer_section article p {
+	margin: 0.25rem 0;
+	text-align: center;
+}
+
+.photographer_section article p:first-child {
+	color: #d3573c;
+	font-size: 1.25rem;
+}
+
+.photographer_section article p:last-child {
+	color: gray;
+}
