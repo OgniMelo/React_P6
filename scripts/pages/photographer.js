@@ -48,6 +48,7 @@ const likes = []
 	}
 })()
 
+// Fill the header with photographer informations
 function fillHeader(photographer) {
 	const { name, city, country, tagline, portrait } = photographer
 	const nameElement = document.querySelector('.photograph_infos > h1')
@@ -92,6 +93,7 @@ function orderMedias(photographer, orderBy = 'pop') {
 	displayMedias(photographer, medias)
 }
 
+// Display all medias of the photographer and add events
 function displayMedias(photographer, medias) {
 	const mediasSection = document.getElementById('photograph_medias')
 	mediasSection.innerHTML = ''
@@ -113,6 +115,7 @@ function displayMedias(photographer, medias) {
 
 		spanName.textContent = media.title
 		spanLike.textContent = media.likes + ' ♥'
+		spanLike.classList.add('like')
 		spanLike.onclick = ({ target }) => {
 			if (likes.includes(media.id)) {
 				return console.log('Pouet')
@@ -125,16 +128,12 @@ function displayMedias(photographer, medias) {
 			likes.push(media.id)
 		}
 
+		// Display media modal
 		link.onclick = (event) => {
 			event.preventDefault()
+			if (event.target.classList.contains('like')) return
 			media_modal.children[media_modal.children.length - 1].appendChild(mediaElement.cloneNode())
-			media_modal.children[media_modal.children.length - 1].appendChild(spanName.cloneNode(true))
-			media_modal.style.display = 'inherit'
-			document.body.style.overflow = 'hidden'
-		}
-
-		mediaElement.onclick = () => {
-			media_modal.children[media_modal.children.length - 1].appendChild(mediaElement.cloneNode())
+			media_modal.children[media_modal.children.length - 1].children[0].controls = true
 			media_modal.children[media_modal.children.length - 1].appendChild(spanName.cloneNode(true))
 			media_modal.style.display = 'inherit'
 			document.body.style.overflow = 'hidden'
@@ -149,6 +148,7 @@ function displayMedias(photographer, medias) {
 	}
 }
 
+// Function to switch media on click or key used
 function changeMedia(direction) {
 	const media = media_modal.children[media_modal.children.length - 1].children[0]
 	media_modal.children[media_modal.children.length - 1].children[1].remove()

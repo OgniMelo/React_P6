@@ -1,3 +1,4 @@
+// Get the data from the json file and return it
 async function getPhotographers() {
 	try {
 		const response = await fetch('./data/photographers.json')
@@ -13,6 +14,7 @@ async function getPhotographers() {
 	}
 }
 
+// Display photographers with the factory
 async function displayData(photographers) {
 	const photographersSection = document.querySelector('.photographer_section')
 
@@ -24,7 +26,6 @@ async function displayData(photographers) {
 }
 
 async function init() {
-	// Récupère les datas des photographes
 	const { photographers } = await getPhotographers()
 	displayData(photographers)
 }
