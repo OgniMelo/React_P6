@@ -182,7 +182,7 @@
 
 .modal {
 	width: 50%;
-	height: 80vh;
+	height: fit-content;
 	margin: auto;
 	padding: 35px;
 	position: absolute;
